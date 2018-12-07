@@ -17,13 +17,19 @@ class MainApp(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
+        self.question = {}
+
 
         for F in [StartPage, PageOne, PageTwo, Question]:
-
             frame = F(container, self)
-
             self.frames[F] = frame
+            frame.grid(row=0, column=0, sticky="nsew")
 
+        # Create Question Frame
+        
+        for F in [StartPage, PageOne, PageTwo, Question]:
+            frame = F(container, self)
+            self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
 
         self.show_frame(StartPage)
@@ -32,6 +38,9 @@ class MainApp(tk.Tk):
 
         frame = self.frames[cont]
         frame.tkraise()
+
+    def show_question(self, container):
+        frame = s
 
         
 class StartPage(tk.Frame):
